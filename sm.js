@@ -7,7 +7,7 @@ $(document).on('ready', function () {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: new google.maps.LatLng(39.58642, -105.07710),
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        zoom: 14
+        zoom: 12
     });
 
     var ftLayer = new google.maps.FusionTablesLayer({
