@@ -26,7 +26,8 @@ $(document).on('ready', function () {
     });
 
     var locateSuccess = function (position) {
-        var ll = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        var ll = new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+            marker_was_visible = car_marker && car_marker.getMap() ? true: false;
         if (car_marker) {
             car_marker.setMap(map);
             car_marker.setPosition(ll);
@@ -35,6 +36,9 @@ $(document).on('ready', function () {
                 map: map,
                 position: ll
             });
+        }
+        if (!marker_was_visible) {
+            map.panTo(ll);
         }
     };
 
